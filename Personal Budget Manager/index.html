@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Personal Budget Manager Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+<header>
+  <img src="https://cdn-icons-png.flaticon.com/512/3135/3135706.png" alt="Logo"/>
+  <div>
+    <h1>Personal Budget Manager</h1>
+    <div class="subheader">Track your money monthly, yearly & all time</div>
+  </div>
+</header>
+
+<!-- Top summary section -->
+<div class="top">
+  <div class="top-left">
+    <div class="card">
+      <div class="stat">Balance</div>
+      <div id="balance" class="value">₹0</div>
+    </div>
+    <div class="card">
+      <div class="stat">Income</div>
+      <div id="income" class="value green">₹0</div>
+    </div>
+    <div class="card">
+      <div class="stat">Expenses</div>
+      <div id="expense" class="value red">₹0</div>
+    </div>
+  </div>
+
+  <div>
+    <select id="summaryPeriod">
+      <option value="thisMonth" selected>This Month</option>
+      <option value="lastMonth">Last Month</option>
+      <option value="thisYear">This Year</option>
+      <option value="lastYear">Last Year</option>
+      <option value="all">All</option>
+    </select>
+  </div>
+</div>
+
+<div class="grid">
+  <div>
+    <!-- Transactions -->
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <strong>Transactions</strong>
+        <select id="txnPeriod">
+          <option value="thisMonth" selected>This Month</option>
+          <option value="lastMonth">Last Month</option>
+          <option value="thisYear">This Year</option>
+          <option value="lastYear">Last Year</option>
+          <option value="all">All</option>
+        </select>
+      </div>
+      <form id="txnForm">
+        <input id="title" placeholder="Title" required />
+        <input id="amount" type="number" placeholder="Amount" required />
+        <select id="type">
+          <option value="income">Income</option>
+          <option value="expense">Expense</option>
+        </select>
+        <select id="category">
+          <option value="salary">💼 Salary</option>
+          <option value="business">🏢 Business</option>
+          <option value="freelance">🖋️ Freelance</option>
+          <option value="shopping">🛍️ Shopping</option>
+          <option value="entertainment">🎬 Entertainment</option>
+          <option value="medical">💊 Medical</option>
+          <option value="food">🍔 Food</option>
+          <option value="travel">🚗 Travel</option>
+          <option value="other">📦 Other</option>
+        </select>
+        <input id="date" type="date" required />
+        <button type="submit">Add</button>
+      </form>
+      <div class="list" id="txnList"></div>
+    </div>
+
+    <!-- Reminders -->
+    <div class="card" style="margin-top:20px;">
+      <strong>Reminders / Bills</strong>
+      <form id="reminderForm">
+        <input id="remTitle" placeholder="Bill Title" required/>
+        <input id="remAmount" type="number" placeholder="Amount"/>
+        <input id="remDay" type="number" min="1" max="31" placeholder="Day" required/>
+        <select id="remRecurrence">
+          <option value="monthly">Monthly</option>
+          <option value="yearly">Yearly</option>
+        </select>
+        <button type="submit">Add</button>
+      </form>
+      <div class="list" id="remList"></div>
+    </div>
+  </div>
+
+  <div>
+    <!-- Category Breakdown -->
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <strong>Category Breakdown</strong>
+        <select id="catPeriod">
+          <option value="thisMonth" selected>This Month</option>
+          <option value="lastMonth">Last Month</option>
+          <option value="thisYear">This Year</option>
+          <option value="lastYear">Last Year</option>
+          <option value="all">All</option>
+        </select>
+      </div>
+      <canvas id="donut" width="300" height="300"></canvas>
+    </div>
+
+    <!-- Income vs Expense -->
+    <div class="card" style="margin-top:20px">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <strong>Income vs Expense</strong>
+        <select id="scalePeriod">
+          <option value="thisMonth" selected>This Month</option>
+          <option value="lastMonth">Last Month</option>
+          <option value="thisYear">This Year</option>
+          <option value="lastYear">Last Year</option>
+          <option value="all">All</option>
+        </select>
+      </div>
+      <canvas id="scale" width="300" height="200"></canvas>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="script.js"></script>
+</div>
+</body>
+</html>

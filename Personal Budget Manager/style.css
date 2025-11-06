@@ -1,0 +1,86 @@
+:root{
+  --bg: #f5f5f7;
+  --card: #ffffff;
+  --accent: #6a1b9a;
+  --muted: #666;
+  --income: #4caf50;
+  --expense: #d32f2f;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  background: var(--bg);
+  padding:20px;
+}
+.app{
+  max-width:1200px;
+  margin:auto;
+}
+header{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:20px;
+}
+header img{
+  width:60px;
+  height:60px;
+  border-radius:12px;
+  background:linear-gradient(90deg,#9c27b0,#e91e63);
+}
+h1{margin:0;font-size:26px;color:var(--accent)}
+.subheader{font-size:14px;color:var(--muted)}
+.top{
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+  margin-bottom:20px;
+  background: var(--card);
+  border-radius:12px;
+  padding:16px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.05);
+  align-items: center;
+  justify-content: space-between;
+}
+.top-left{
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+  flex:1;
+}
+.card{
+  background:var(--card);
+  border-radius:12px;
+  padding:16px;
+  flex:1;
+  min-width:200px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.05);
+}
+.stat{font-size:14px;color:var(--muted)}
+.value{font-size:22px;margin-top:6px;font-weight:600}
+.green{color:var(--income)}
+.red{color:var(--expense)}
+.grid{display:grid;grid-template-columns:2fr 1fr;gap:20px}
+.list{max-height:400px;overflow:auto;padding:8px;border-radius:8px;background:#faf7ff;border:1px solid #f0e7f7}
+.txn,.reminder{display:flex;justify-content:space-between;align-items:center;padding:8px;border-radius:8px;margin-bottom:8px;background:#fff;border:1px solid #f2eaf8}
+.txn .left,.reminder .left{display:flex;gap:10px;align-items:center}
+.chip{padding:6px 8px;border-radius:8px;background:#f3e5f5;color:var(--accent);font-weight:600}
+.txn .meta,.reminder .meta{font-size:13px;color:var(--muted)}
+.controls{display:flex;gap:6px;align-items:center;}
+.controls button{
+  border:none;
+  background:#eee;
+  padding:4px 6px;
+  border-radius:6px;
+  cursor:pointer;
+  transition:0.2s;
+}
+.controls button:hover{background:#ddd;}
+small{font-size:13px;color:var(--muted)}
+canvas{display:block;margin:0 auto;max-width:100%}
+form{margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;align-items:end}
+input, select, button{padding:10px;border-radius:8px;border:1px solid #e0d6ea;background:#fff}
+button{background:var(--accent);color:#fff;border:none;cursor:pointer}
+button:hover{opacity:0.9;}
+@media(max-width:900px){.grid{grid-template-columns:1fr}}
